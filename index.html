@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Productivity Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <video id="bg-video" autoplay muted loop playsinline>
+      <source
+        id="bg-source"
+        src="https://www.pexels.com/download/video/1826945/"
+        type="video/mp4"
+      />
+    </video>
+
+    <div class="overlay"></div>
+
+    <nav class="navbar">
+      <div class="logo">
+        <i class="ri-dashboard-horizontal-fill"></i>
+        <h2>Productivity Dashboard</h2>
+      </div>
+
+      <div class="nav-icons">
+        <button id="theme-btn">
+          <i class="ri-moon-line"></i>
+        </button>
+        <a href="#" target="_blank" id="github-btn">
+          <i class="ri-github-fill"></i>
+        </a>
+      </div>
+    </nav>
+
+    <aside class="sidebar">
+      <button class="sidebar-item" data-feature="todo">
+        <video muted loop preload="metadata">
+          <source src="assets/todo.mp4" />
+        </video>
+        <i class="ri-checkbox-circle-line"></i>
+        <span class="tooltip">Todo</span>
+      </button>
+
+      <button class="sidebar-item" data-feature="planner">
+        <video muted loop preload="metadata">
+          <source src="assets/planner.mp4" />
+        </video>
+        <i class="ri-calendar-line"></i>
+        <span class="tooltip">Planer</span>
+      </button>
+
+      <button class="sidebar-item" data-feature="goals">
+        <video muted loop preload="metadata">
+          <source src="assets/goals.mp4" />
+        </video>
+        <i class="ri-focus-3-line"></i>
+        <span class="tooltip">Goals</span>
+      </button>
+
+      <button class="sidebar-item" data-feature="pomodoro">
+        <video muted loop preload="metadata">
+          <source src="assets/timer.mp4" />
+        </video>
+        <i class="ri-timer-line"></i>
+        <span class="tooltip">Pomodoro</span>
+      </button>
+
+      <button class="sidebar-item" data-feature="quotes">
+        <video muted loop preload="metadata">
+          <source src="assets/quote.mp4" />
+        </video>
+        <i class="ri-double-quotes-l"></i>
+        <span class="tooltip">Quotes</span>
+      </button>
+    </aside>
+
+    <main class="pages">
+      <section id="home" class="page active">
+        <div class="hero">
+          <section class="weather-card">
+            <div class="weather-card-left">
+              <h3 id="greeting">Good Evening</h3>
+
+              <h1 id="clock">10:45:30 PM</h1>
+
+              <p id="date">Saturday, 5 July 2026</p>
+            </div>
+
+            <div class="weather-info">
+              <h2 id="city">New Delhi</h2>
+
+              <div class="temperature">
+                <i class="ri-sun-cloudy-line"></i>
+                <span id="temp"> 31°C </span>
+              </div>
+              <p id="condition">Partly Cloudy</p>
+
+              <div class="weather-extra">
+                <div>
+                  <span>Humidity</span>
+                  <strong id="humidity"> 72% </strong>
+                </div>
+
+                <div>
+                  <span>Wind</span>
+                  <strong id="wind"> 8 km/h </strong>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section id="todo" class="page">
+        <div class="page-container">
+          <h1>Todo List</h1>
+
+          <p>Your personalized <b>TASK</b> list.</p>
+
+          <div class="todo-input">
+            <input
+              type="text"
+              id="task-input"
+              placeholder="What needs to be done today?"
+            />
+
+            <button id="important-btn">
+              <i class="ri-star-line"></i>
+            </button>
+
+            <button id="add-task">Add task</button>
+          </div>
+
+          <div class="todo-stats">
+            <span id="task-count"><b>0 Tasks</b></span>
+          </div>
+
+          <div class="task-filters">
+            <div class="task-filters-left">
+              <button class="filter-btn active" data-filter="all">All</button>
+              <button class="filter-btn" data-filter="active">Active</button>
+              <button class="filter-btn" data-filter="completed">
+                Completed
+              </button>
+            </div>
+
+            <div class="task-filters-right">
+              <div class="todo-actions">
+                <button id="clear-completed">
+                  <i class="ri-delete-bin-line"></i>
+                  Clear Completed
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <ul id="task-list"></ul>
+        </div>
+      </section>
+
+      <section id="planner" class="page">
+        <div class="page-container">
+          <h1>Planner</h1>
+          <p>Plan your day to be more <b>PRODUCTIVE</b>.</p>
+
+          <div class="planner-input">
+            <input type="text" id="event-title" placeholder="Event title" />
+
+            <input type="date" id="event-date" placeholder="Event date" />
+
+            <input type="time" id="event-time" placeholder="Event time" />
+
+            <button id="add-event">Add Event</button>
+          </div>
+
+          <div class="planner-stats">
+            <span id="event-count"> 0 Upcoming Events </span>
+          </div>
+
+          <div class="planner-content">
+            <div class="calendar-section">
+              <div class="calendar-header">
+                <span>Sun</span>
+                <span>Mon</span>
+                <span>Tue</span>
+                <span>Wed</span>
+                <span>Thu</span>
+                <span>Fri</span>
+                <span>Sat</span>
+              </div>
+
+              <div class="calendar-days"></div>
+            </div>
+
+            <div class="events-section">
+              <h3>Upcoming Events</h3>
+
+              <ul id="event-list"></ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="goals" class="page">
+        <div class="page-container">
+          <h1>Goals Tracker</h1>
+          <p>Track your long-term <b>PROGRESS</b>.</p>
+
+          <div class="goal-input">
+            <input
+              type="text"
+              id="goal-input"
+              placeholder="Enter your goal..."
+            />
+
+            <button id="add-goal">Add Goal</button>
+          </div>
+
+          <div class="goal-stats">
+            <span id="goal-count">0 Goals</span>
+          </div>
+
+          <ul id="goal-list"></ul>
+        </div>
+      </section>
+
+      <section id="pomodoro" class="page">
+        <div class="page-container">
+          <h1>Pomodoro Timer</h1>
+          <p>Stay <b>FOCUSED</b>.</p>
+
+          <div class="timer-card">
+            <h2 id="timer-mode">Pomodoro</h2>
+
+            <div id="timer-display">25:00</div>
+
+            <div class="timer-progress">
+              <div id="timer-progress-fill"></div>
+            </div>
+
+            <div class="timer-controls">
+              <button id="start-timer">Start</button>
+              <button id="pause-timer">Pause</button>
+              <button id="reset-timer">Reset</button>
+            </div>
+
+            <div class="timer-modes">
+              <button class="mode-btn active" data-time="25">Pomodoro</button>
+
+              <button class="mode-btn" data-time="5">Short Break</button>
+
+              <button class="mode-btn" data-time="15">Long Break</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="quotes" class="page">
+        <div class="page-container">
+          <h1>Daily Motivation</h1>
+          <p>Stay inspired with a fresh <b>QUOTE</b>.</p>
+
+          <div class="quote-card">
+            <p id="quote-text">Click "New Quote" to get inspired.</p>
+
+            <h3 id="quote-author"></h3>
+
+            <div class="quote-actions">
+              <button id="new-quote">
+                <i class="ri-refresh-line"></i>
+                New Quote
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+    <script src="planner.js"></script>
+    <script src="goals.js"></script>
+    <script src="pomodoro.js"></script>
+    <script src="quotes.js"></script>
+  </body>
+</html>
